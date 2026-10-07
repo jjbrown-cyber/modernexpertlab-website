@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://modernexpertlab.com/sitemap.xml
+Sitemap: https://www.modernexpertlab.com/sitemap.xml
