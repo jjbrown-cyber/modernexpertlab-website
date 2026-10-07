@@ -7,7 +7,8 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('consent', 'default', {analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied'});
-  try { if (localStorage.getItem('mel-cookie-consent') === 'granted') { gtag('consent', 'update', {analytics_storage: 'granted'}); } } catch (e) {}
+  function melLoadHubSpot() { if (document.getElementById('hs-script-loader')) { return; } var s = document.createElement('script'); s.id = 'hs-script-loader'; s.async = true; s.defer = true; s.src = 'https://js-eu1.hs-scripts.com/149462039.js'; document.head.appendChild(s); }
+  try { if (localStorage.getItem('mel-cookie-consent') === 'granted') { gtag('consent', 'update', {analytics_storage: 'granted'}); melLoadHubSpot(); } } catch (e) {}
   gtag('js', new Date());
   gtag('config', 'G-LLZFSDRP37');
 </script>
@@ -188,7 +189,7 @@ img{max-width:100%}
 <style>@media (max-width: 760px){section[style*="margin: 0 80px 96px"]{margin:0 16px 64px!important;padding:40px 20px!important}}</style>
 
 <div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie choice" style="display: none; position: fixed; left: 24px; right: 24px; bottom: 24px; z-index: 1000; max-width: 720px; margin: 0 auto; padding: 24px 28px; background: #14233B; color: #F3EDE2; border-radius: 20px; box-shadow: 0 12px 40px rgba(20,35,59,0.25); font-family: 'IBM Plex Sans', system-ui, sans-serif;">
-<p style="margin: 0 0 16px; font-size: 18px; line-height: 1.55;">I use Google Analytics cookies to see how people use this website. They don't tell me who you are. Is that OK? <a href="privacy-policy.html" style="color: #E3C47E;">Read my privacy policy</a>.</p>
+<p style="margin: 0 0 16px; font-size: 18px; line-height: 1.55;">I use Google Analytics and HubSpot cookies to see how people use this website. Is that OK? <a href="privacy-policy.html" style="color: #E3C47E;">Read my privacy policy</a>.</p>
 <div style="display: flex; gap: 12px; flex-wrap: wrap;">
 <button type="button" onclick="melConsent('granted')" style="border: none; cursor: pointer; padding: 12px 26px; border-radius: 999px; background: #E3C47E; color: #14233B; font-family: inherit; font-size: 17px; font-weight: 600;">Accept</button>
 <button type="button" onclick="melConsent('denied')" style="cursor: pointer; padding: 12px 26px; border-radius: 999px; background: transparent; color: #F3EDE2; border: 1px solid #F3EDE2; font-family: inherit; font-size: 17px; font-weight: 600;">Reject</button>
@@ -197,8 +198,8 @@ img{max-width:100%}
 <script>
 function melConsent(choice) {
   try { localStorage.setItem('mel-cookie-consent', choice); } catch (e) {}
-  if (choice === 'granted') { gtag('consent', 'update', {analytics_storage: 'granted'}); }
-  else { gtag('consent', 'update', {analytics_storage: 'denied'}); }
+  if (choice === 'granted') { gtag('consent', 'update', {analytics_storage: 'granted'}); melLoadHubSpot(); }
+  else { gtag('consent', 'update', {analytics_storage: 'denied'}); (window._hsq = window._hsq || []).push(['doNotTrack']); }
   document.getElementById('cookie-banner').style.display = 'none';
 }
 function melCookieSettings() { document.getElementById('cookie-banner').style.display = 'block'; }

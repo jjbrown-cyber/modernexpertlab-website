@@ -7,7 +7,8 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('consent', 'default', {analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied'});
-  try { if (localStorage.getItem('mel-cookie-consent') === 'granted') { gtag('consent', 'update', {analytics_storage: 'granted'}); } } catch (e) {}
+  function melLoadHubSpot() { if (document.getElementById('hs-script-loader')) { return; } var s = document.createElement('script'); s.id = 'hs-script-loader'; s.async = true; s.defer = true; s.src = 'https://js-eu1.hs-scripts.com/149462039.js'; document.head.appendChild(s); }
+  try { if (localStorage.getItem('mel-cookie-consent') === 'granted') { gtag('consent', 'update', {analytics_storage: 'granted'}); melLoadHubSpot(); } } catch (e) {}
   gtag('js', new Date());
   gtag('config', 'G-LLZFSDRP37');
 </script>
@@ -43,7 +44,7 @@ footer{padding:36px 80px 48px;border-top:1px solid #DCD2C2;font-size:17px;color:
 <header><a class="logo" href="/">The Modern Expert Lab</a><a class="back" href="/">Back to home</a></header>
 <main>
 <h1>Privacy policy</h1>
-<p class="updated">Last updated 6 October 2026</p>
+<p class="updated">Last updated 7 October 2026</p>
 
 <p>This policy explains how The Modern Expert Lab collects and uses your personal data when you visit this website, contact me, book a call, join my newsletter or work with me. I follow UK data protection law, including the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
 
@@ -70,7 +71,7 @@ footer{padding:36px 80px 48px;border-top:1px solid #DCD2C2;font-size:17px;color:
 <tr><td>Send my newsletter by email and publish it on LinkedIn</td><td>Consent, which you give when you subscribe and can withdraw at any time</td></tr>
 <tr><td>Send invoices and keep financial records</td><td>Legal obligation</td></tr>
 <tr><td>Improve my services and keep my business secure</td><td>Legitimate interests</td></tr>
-<tr><td>Measure how people use this website with Google Analytics</td><td>Consent, which you give in the cookie banner and can withdraw at any time</td></tr>
+<tr><td>Measure how people use this website with Google Analytics and HubSpot</td><td>Consent, which you give in the cookie banner and can withdraw at any time</td></tr>
 </tbody>
 </table>
 <p>I never sell your data, and I don't use it for automated decisions about you.</p>
@@ -79,7 +80,7 @@ footer{padding:36px 80px 48px;border-top:1px solid #DCD2C2;font-size:17px;color:
 <p>I use trusted service providers to run my business. They only process your data on my instructions.</p>
 <ul>
 <li>Website domain and hosting through Namecheap</li>
-<li>Website analytics through Google Analytics</li>
+<li>Website analytics through Google Analytics and HubSpot</li>
 <li>Enquiry forms, newsletter sign-ups and contact records through HubSpot</li>
 <li>Call bookings through Calendly</li>
 <li>Newsletter through LinkedIn</li>
@@ -97,7 +98,8 @@ footer{padding:36px 80px 48px;border-top:1px solid #DCD2C2;font-size:17px;color:
 
 <h2>Does this website use cookies?</h2>
 <p>This website uses Google Analytics to understand how visitors use it, for example which pages people read and how they found the site. Google Analytics sets cookies and collects information such as your device, browser, approximate location and the pages you visit. It doesn't tell me who you are. Google processes this data on my behalf and may store it outside the UK. The website also loads fonts from Google Fonts, which may record your IP address. This website doesn't use advertising cookies.</p>
-<p>Google Analytics cookies are only set if you click &ldquo;Accept&rdquo; in the cookie banner. You can change your choice at any time. <button type="button" onclick="melCookieSettings()" style="cursor: pointer; padding: 6px 16px; border-radius: 999px; border: 1px solid #14233B; background: transparent; color: #14233B; font-family: inherit; font-size: 17px;">Change cookie settings</button></p>
+<p>HubSpot also sets cookies to count visits and see which pages people read. If you fill in a form on this website, HubSpot can link your earlier visits to the details you gave me. HubSpot processes this data on my behalf and stores it in the EU.</p>
+<p>Google Analytics and HubSpot cookies are only set if you click &ldquo;Accept&rdquo; in the cookie banner. You can change your choice at any time. <button type="button" onclick="melCookieSettings()" style="cursor: pointer; padding: 6px 16px; border-radius: 999px; border: 1px solid #14233B; background: transparent; color: #14233B; font-family: inherit; font-size: 17px;">Change cookie settings</button></p>
 
 <h2>What are your rights?</h2>
 <p>Under UK GDPR you have the right to</p>
@@ -121,7 +123,7 @@ footer{padding:36px 80px 48px;border-top:1px solid #DCD2C2;font-size:17px;color:
 <footer>© 2026 The Modern Expert Lab · York, UK</footer>
 
 <div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie choice" style="display: none; position: fixed; left: 24px; right: 24px; bottom: 24px; z-index: 1000; max-width: 720px; margin: 0 auto; padding: 24px 28px; background: #14233B; color: #F3EDE2; border-radius: 20px; box-shadow: 0 12px 40px rgba(20,35,59,0.25); font-family: 'IBM Plex Sans', system-ui, sans-serif;">
-<p style="margin: 0 0 16px; font-size: 18px; line-height: 1.55;">I use Google Analytics cookies to see how people use this website. They don't tell me who you are. Is that OK? <a href="privacy-policy.html" style="color: #E3C47E;">Read my privacy policy</a>.</p>
+<p style="margin: 0 0 16px; font-size: 18px; line-height: 1.55;">I use Google Analytics and HubSpot cookies to see how people use this website. Is that OK? <a href="privacy-policy.html" style="color: #E3C47E;">Read my privacy policy</a>.</p>
 <div style="display: flex; gap: 12px; flex-wrap: wrap;">
 <button type="button" onclick="melConsent('granted')" style="border: none; cursor: pointer; padding: 12px 26px; border-radius: 999px; background: #E3C47E; color: #14233B; font-family: inherit; font-size: 17px; font-weight: 600;">Accept</button>
 <button type="button" onclick="melConsent('denied')" style="cursor: pointer; padding: 12px 26px; border-radius: 999px; background: transparent; color: #F3EDE2; border: 1px solid #F3EDE2; font-family: inherit; font-size: 17px; font-weight: 600;">Reject</button>
@@ -130,8 +132,8 @@ footer{padding:36px 80px 48px;border-top:1px solid #DCD2C2;font-size:17px;color:
 <script>
 function melConsent(choice) {
   try { localStorage.setItem('mel-cookie-consent', choice); } catch (e) {}
-  if (choice === 'granted') { gtag('consent', 'update', {analytics_storage: 'granted'}); }
-  else { gtag('consent', 'update', {analytics_storage: 'denied'}); }
+  if (choice === 'granted') { gtag('consent', 'update', {analytics_storage: 'granted'}); melLoadHubSpot(); }
+  else { gtag('consent', 'update', {analytics_storage: 'denied'}); (window._hsq = window._hsq || []).push(['doNotTrack']); }
   document.getElementById('cookie-banner').style.display = 'none';
 }
 function melCookieSettings() { document.getElementById('cookie-banner').style.display = 'block'; }
