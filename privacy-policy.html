@@ -141,7 +141,11 @@ function melCookieSettings() { document.getElementById('cookie-banner').style.di
 (function () {
   var c = null;
   try { c = localStorage.getItem('mel-cookie-consent'); } catch (e) {}
-  if (c !== 'granted' && c !== 'denied') { document.getElementById('cookie-banner').style.display = 'block'; }
+  if (c !== 'granted' && c !== 'denied') {
+    var shown = false;
+    var show = function () { if (shown || window.scrollY < 150) { return; } shown = true; document.getElementById('cookie-banner').style.display = 'block'; window.removeEventListener('scroll', show); };
+    window.addEventListener('scroll', show, {passive: true});
+  }
 })();
 </script>
 </body>
