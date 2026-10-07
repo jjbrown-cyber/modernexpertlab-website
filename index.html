@@ -251,19 +251,49 @@ img{max-width:100%}
  ]
 }
 </script>
+<style>
+.site-logo{white-space:nowrap}
+#site-nav a{white-space:nowrap}
+.menu-btn{display:none}
+@media (max-width:1400px) and (min-width:1001px){
+ header{padding-left:48px!important;padding-right:48px!important}
+ #site-nav{gap:22px!important;font-size:18px!important}
+ .site-logo{font-size:24px!important}
+ header{gap:32px}
+}
+@media (max-width:1180px) and (min-width:1001px){
+ #site-nav{gap:16px!important;font-size:16px!important}
+ .site-logo{font-size:21px!important}
+ #site-nav a.nav-cta{padding:10px 16px!important}
+}
+@media (max-width:1000px){
+ header{flex-wrap:wrap!important;gap:0!important;padding:16px 20px!important;margin:0!important}
+ .site-logo{font-size:22px!important}
+ .menu-btn{display:inline-flex;align-items:center;gap:8px;border:1px solid #14233B;background:transparent;color:#14233B;border-radius:999px;padding:8px 16px;font:inherit;font-size:16px;font-weight:600;cursor:pointer}
+ #site-nav{display:none!important;width:100%;flex-direction:column!important;align-items:flex-start!important;gap:0!important;font-size:19px!important;padding-top:12px}
+ #site-nav.open{display:flex!important}
+ #site-nav a{display:block;padding:12px 0;width:100%;border-top:1px solid #E8DFD0}
+ #site-nav a.nav-cta{display:inline-block;width:auto;margin-top:12px;border-top:none;padding:12px 22px!important}
+ .card-head{flex-direction:column!important;align-items:flex-start!important;gap:10px!important}
+ .card-head h3{font-size:28px!important}
+ .card-price{align-items:flex-start!important;white-space:normal!important;font-size:22px!important}
+}
+</style>
+<script>function melMenu(btn){var n=document.getElementById('site-nav');var o=n.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false');btn.textContent=o?'Close':'Menu';}</script>
 </head>
 <body>
 <div style="width: 100%; background: #F3EDE2; color: #14233B; display: flex; flex-direction: column;">
 
 <header style="display: flex; justify-content: space-between; align-items: center; padding: 28px 80px; border-bottom: 1px solid #DCD2C2;">
-<div style="font-family: Georgia, 'Times New Roman', serif; font-size: 28px; font-weight: 700; color: #14233B;">The Modern Expert Lab</div>
-<nav style="display: flex; gap: 32px; align-items: center; font-size: 21px;">
+<div class="site-logo" style="font-family: Georgia, 'Times New Roman', serif; font-size: 28px; font-weight: 700; color: #14233B;">The Modern Expert Lab</div>
+<button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-nav" onclick="melMenu(this)">Menu</button>
+<nav id="site-nav" style="display: flex; gap: 32px; align-items: center; font-size: 21px;">
 <a href="#offers" onclick="pick('ind')" style="text-decoration: none;">For individuals</a>
 <a href="#offers" onclick="pick('org')" style="text-decoration: none;">For teams</a>
 <a href="the-modern-expert-path.html" style="text-decoration: none;">The method</a>
 <a href="#about" style="text-decoration: none;">About</a>
 <a href="#newsletter" style="text-decoration: none;">Newsletter</a>
-<a href="#book" style="text-decoration: none; background: #14233B; color: #F3EDE2; padding: 12px 22px; border-radius: 999px; font-weight: 500;">Book a call</a>
+<a href="#book" class="nav-cta" style="text-decoration: none; background: #14233B; color: #F3EDE2; padding: 12px 22px; border-radius: 999px; font-weight: 500;">Book a call</a>
 </nav>
 </header>
 
@@ -341,9 +371,9 @@ img{max-width:100%}
 </div>
 
 <article style="background: #FFFDF8; border: 1px solid #DCD2C2; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 14px;">
-<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px;">
+<div class="card-head" style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px;">
 <h3 style="margin: 0; font-size: 32px;">The Modern Expert Core</h3>
-<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px; white-space: nowrap;"><div style="font-size: 25px; font-weight: 700;"><span style="font-size: 0.75em; font-weight: 500; color: #8A6A2E; text-decoration: line-through; margin-right: 10px;">£200</span>£149</div><div style="font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: #8A6A2E;">Intro offer until 30 Nov 2026</div></div>
+<div class="card-price" style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px; white-space: nowrap;"><div style="font-size: 25px; font-weight: 700;"><span style="font-size: 0.75em; font-weight: 500; color: #8A6A2E; text-decoration: line-through; margin-right: 10px;">£200</span>£149</div><div style="font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: #8A6A2E;">Intro offer until 30 Nov 2026</div></div>
 </div>
 <div style="font-size: 19px; color: #5A6573;">One 90-minute call, online</div>
 <p style="margin: 0; font-size: 23px; line-height: 1.6;">Define your core expertise. We start with a conversation about your experience and where you want to go next. Then we look at what your customers search for on Google and ask AI tools. You see which subjects matter most in your niche, and which new, related subjects you could become known for.</p>
@@ -354,9 +384,9 @@ img{max-width:100%}
 </article>
 
 <article style="background: #FFFDF8; border: 1px solid #DCD2C2; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 14px;">
-<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px;">
+<div class="card-head" style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px;">
 <h3 style="margin: 0; font-size: 32px;">The 30-Day Modern Expert Sprint</h3>
-<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px; white-space: nowrap;"><div style="font-size: 25px; font-weight: 700;"><span style="font-size: 0.75em; font-weight: 500; color: #8A6A2E; text-decoration: line-through; margin-right: 10px;">£699</span>£499</div><div style="font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: #8A6A2E;">Intro offer until 30 Nov 2026</div></div>
+<div class="card-price" style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px; white-space: nowrap;"><div style="font-size: 25px; font-weight: 700;"><span style="font-size: 0.75em; font-weight: 500; color: #8A6A2E; text-decoration: line-through; margin-right: 10px;">£699</span>£499</div><div style="font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: #8A6A2E;">Intro offer until 30 Nov 2026</div></div>
 </div>
 <div style="font-size: 19px; color: #5A6573;">Four weekly 1:1 coaching sessions</div>
 <p style="margin: 0; font-size: 23px; line-height: 1.6;">In 30 days you go from "I'm not sure what to call my expertise" to a clear focus, a stronger LinkedIn profile, a content plan and your first posts online. You go through the first four steps of The Modern Expert Path™.</p>
@@ -392,9 +422,9 @@ img{max-width:100%}
 </div>
 
 <article style="background: #FFFDF8; border: 1px solid #DCD2C2; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 14px;">
-<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px;">
+<div class="card-head" style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px;">
 <h3 style="margin: 0; font-size: 32px;">The Modern Expert Core Workshop</h3>
-<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px; white-space: nowrap;"><div style="font-size: 25px; font-weight: 700;"><span style="font-size: 0.75em; font-weight: 500; color: #8A6A2E; text-decoration: line-through; margin-right: 10px;">£750</span>£499</div><div style="font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: #8A6A2E;">Intro offer until 30 Nov 2026</div></div>
+<div class="card-price" style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px; white-space: nowrap;"><div style="font-size: 25px; font-weight: 700;"><span style="font-size: 0.75em; font-weight: 500; color: #8A6A2E; text-decoration: line-through; margin-right: 10px;">£750</span>£499</div><div style="font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: #8A6A2E;">Intro offer until 30 Nov 2026</div></div>
 </div>
 <div style="font-size: 19px; color: #5A6573;">One 2-hour online training session for up to 20 experts</div>
 <p style="margin: 0; font-size: 23px; line-height: 1.6;">A single training session on the first step of The Modern Expert Path™, for your whole team. Your experts find their own reason to build their online presence, starting on LinkedIn.</p>
@@ -406,9 +436,9 @@ img{max-width:100%}
 </article>
 
 <article style="background: #14233B; color: #F3EDE2; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 18px;">
-<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px;">
+<div class="card-head" style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px;">
 <h3 style="margin: 0; font-size: 32px;">The 90-Day Modern Expert Team Programme</h3>
-<div style="font-size: 25px; font-weight: 700; white-space: nowrap; color: #C9A35A;">Enquire about price</div>
+<div class="card-price" style="font-size: 25px; font-weight: 700; white-space: nowrap; color: #C9A35A;">Enquire about price</div>
 </div>
 <div style="font-size: 19px; color: #C9C3B8; margin-top: -8px;">90 days of group coaching for up to 10 experts, plus 1:1 coaching for your programme manager</div>
 <p style="margin: 0; font-size: 23px; line-height: 1.6;">A coaching programme that helps your experts build their online presence, starting on LinkedIn. It starts with the Core Workshop. Then your experts get three group coaching sessions, personal feedback and direct access to me for 90 days. Together they go from invisible online to posting with confidence.</p>
@@ -419,9 +449,9 @@ img{max-width:100%}
 </article>
 
 <article style="background: #FFFDF8; border: 1px solid #DCD2C2; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 14px;">
-<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px;">
+<div class="card-head" style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px;">
 <h3 style="margin: 0; font-size: 32px;">The Modern Expert Keynote</h3>
-<div style="font-size: 25px; font-weight: 700; white-space: nowrap;">Enquire about price</div>
+<div class="card-price" style="font-size: 25px; font-weight: 700; white-space: nowrap;">Enquire about price</div>
 </div>
 <div style="font-size: 19px; color: #5A6573;">A 30 to 45-minute talk, online or in person in the UK and abroad, for leadership, marketing and sales teams</div>
 <div style="font-family: Georgia, 'Times New Roman', serif; font-size: 27px; font-style: italic; line-height: 1.3; color: #8A6A2E;">"Your hidden growth engine. How visible experts win trust, customers and business in the age of AI search."</div>
@@ -498,18 +528,6 @@ img{max-width:100%}
 <figure style="margin: 0; background: #FFFDF8; border: 1px solid #DCD2C2; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px;">
 <blockquote style="margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: 24px; line-height: 1.55; color: #14233B;"><span style="display: block; font-size: 56px; line-height: 0.6; color: #C9A35A; margin-bottom: 8px;">&ldquo;</span>Justyna has a real talent for helping people find their voice and feel confident contributing.</blockquote>
 <figcaption style="font-size: 18px; line-height: 1.45; color: #5A6573; border-top: 1px solid #E8DFD0; padding-top: 16px;"><strong style="color: #14233B;">Marija V.</strong><br>Employee advocacy specialist</figcaption>
-</figure>
-<figure style="margin: 0; background: #FFFDF8; border: 1px solid #DCD2C2; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px;">
-<blockquote style="margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: 24px; line-height: 1.55; color: #14233B;"><span style="display: block; font-size: 56px; line-height: 0.6; color: #C9A35A; margin-bottom: 8px;">&ldquo;</span>Thanks for the great, great session! The highest satisfaction score ever amongst 121 participants!</blockquote>
-<figcaption style="font-size: 18px; line-height: 1.45; color: #5A6573; border-top: 1px solid #E8DFD0; padding-top: 16px;"><strong style="color: #14233B;">Aileen S.</strong><br>Global Head of Social Media</figcaption>
-</figure>
-<figure style="margin: 0; background: #FFFDF8; border: 1px solid #DCD2C2; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px;">
-<blockquote style="margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: 24px; line-height: 1.55; color: #14233B;"><span style="display: block; font-size: 56px; line-height: 0.6; color: #C9A35A; margin-bottom: 8px;">&ldquo;</span>I can always put something new into practice right after your workshops. Thanks for encouraging me to use my LinkedIn account more actively than in the past.</blockquote>
-<figcaption style="font-size: 18px; line-height: 1.45; color: #5A6573; border-top: 1px solid #E8DFD0; padding-top: 16px;"><strong style="color: #14233B;">Johanna W.</strong><br>Digital Transformation Manager</figcaption>
-</figure>
-<figure style="margin: 0; background: #FFFDF8; border: 1px solid #DCD2C2; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px;">
-<blockquote style="margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: 24px; line-height: 1.55; color: #14233B;"><span style="display: block; font-size: 56px; line-height: 0.6; color: #C9A35A; margin-bottom: 8px;">&ldquo;</span>You&rsquo;ve carved out such a distinctive position around LinkedIn visibility and AI search.</blockquote>
-<figcaption style="font-size: 18px; line-height: 1.45; color: #5A6573; border-top: 1px solid #E8DFD0; padding-top: 16px;"><strong style="color: #14233B;">Anita V.</strong><br>Former Global Social Media Director</figcaption>
 </figure>
 <figure style="margin: 0; background: #FFFDF8; border: 1px solid #DCD2C2; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px;">
 <blockquote style="margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: 24px; line-height: 1.55; color: #14233B;"><span style="display: block; font-size: 56px; line-height: 0.6; color: #C9A35A; margin-bottom: 8px;">&ldquo;</span>The trainer was not only knowledgeable but had a very friendly and understanding approach to trainees.</blockquote>
