@@ -607,8 +607,16 @@ e.addEventListener('input',function(){e.setCustomValidity(free.test(e.value)?'Pl
       status.hidden = true;
       send(formId, build(form))
         .catch(function () { if (fallback) { return send(formId, fallback(form)); } throw new Error('failed'); })
-        .then(function () { form.reset(); status.textContent = thanks; })
-        .catch(function () { status.textContent = 'Sorry, something went wrong. Please email me at justyna@modernexpertlab.com.'; })
+        .then(function () {
+          var budget = v(form, 'budget') || '(not set)';
+          form.reset(); status.textContent = thanks;
+          if (form.id === 'enquiry') {
+            gtag('event', 'generate_lead', {form_name: 'enquiry', budget: budget});
+          } else {
+            gtag('event', 'sign_up', {form_name: 'newsletter', method: 'website form'});
+          }
+        })
+        .catch(function () { gtag('event', 'form_error', {form_name: form.id}); status.textContent = 'Sorry, something went wrong. Please email me at justyna@modernexpertlab.com.'; })
         .then(function () { status.hidden = false; btn.disabled = false; });
     });
   }
@@ -659,6 +667,19 @@ function melCookieSettings() { document.getElementById('cookie-banner').style.di
     window.addEventListener('scroll', show, {passive: true});
   }
 })();
+</script>
+<script>
+document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('a[href]');
+  if (!a || typeof gtag !== 'function') { return; }
+  var h = a.href, label = (a.textContent || '').trim().slice(0, 60);
+  if (h.indexOf('meetings-eu1.hubspot.com/jbrownbridge') > -1) { gtag('event', 'book_call_click', {link_text: label}); }
+  else if (h.indexOf('calendly.com/justyna-modernexpertlab') > -1) { gtag('event', 'book_core_click', {link_text: label}); }
+  else if (h.indexOf('linkedin.com/newsletters') > -1) { gtag('event', 'newsletter_link_click', {link_text: label}); }
+  else if (h.indexOf('linkedin.com/in/justyna-brownbridge') > -1) { gtag('event', 'linkedin_profile_click', {link_text: label}); }
+  else if (h.indexOf('mailto:') === 0) { gtag('event', 'email_click', {link_text: label}); }
+  else if (h.indexOf('the-modern-expert-path') > -1) { gtag('event', 'method_page_click', {link_text: label}); }
+});
 </script>
 </body>
 </html>

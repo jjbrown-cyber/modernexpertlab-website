@@ -158,5 +158,18 @@ function melCookieSettings() { document.getElementById('cookie-banner').style.di
   }
 })();
 </script>
+<script>
+document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('a[href]');
+  if (!a || typeof gtag !== 'function') { return; }
+  var h = a.href, label = (a.textContent || '').trim().slice(0, 60);
+  if (h.indexOf('meetings-eu1.hubspot.com/jbrownbridge') > -1) { gtag('event', 'book_call_click', {link_text: label}); }
+  else if (h.indexOf('calendly.com/justyna-modernexpertlab') > -1) { gtag('event', 'book_core_click', {link_text: label}); }
+  else if (h.indexOf('linkedin.com/newsletters') > -1) { gtag('event', 'newsletter_link_click', {link_text: label}); }
+  else if (h.indexOf('linkedin.com/in/justyna-brownbridge') > -1) { gtag('event', 'linkedin_profile_click', {link_text: label}); }
+  else if (h.indexOf('mailto:') === 0) { gtag('event', 'email_click', {link_text: label}); }
+  else if (h.indexOf('the-modern-expert-path') > -1) { gtag('event', 'method_page_click', {link_text: label}); }
+});
+</script>
 </body>
 </html>
