@@ -299,8 +299,7 @@ img{max-width:100%}
 <div class="site-logo" style="font-family: Georgia, 'Times New Roman', serif; font-size: 28px; font-weight: 700; color: #14233B;">The Modern Expert Lab</div>
 <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-nav" onclick="melMenu(this)">Menu</button>
 <nav id="site-nav" style="display: flex; gap: 32px; align-items: center; font-size: 21px;">
-<a href="#offers" onclick="pick('ind')" style="text-decoration: none;">For individuals</a>
-<a href="#offers" onclick="pick('org')" style="text-decoration: none;">For teams</a>
+<a href="#offers" style="text-decoration: none;">Offer</a>
 <a href="the-modern-expert-path.html" style="text-decoration: none;">The method</a>
 <a href="#about" style="text-decoration: none;">About</a>
 <a href="#newsletter" style="text-decoration: none;">Newsletter</a>
@@ -369,10 +368,10 @@ img{max-width:100%}
 
 <section id="offers" style="padding: 24px 80px 112px; display: flex; flex-direction: column; gap: 48px; align-items: center;">
 <div style="padding: 8px; background: #E8DFD0; border-radius: 999px; display: flex; gap: 8px;">
-<button type="button" id="btn-ind" class="tbtn on" aria-pressed="true" onclick="pick('ind')">For individuals</button>
-<button type="button" id="btn-org" class="tbtn" aria-pressed="false" onclick="pick('org')">For teams</button>
+<button type="button" id="btn-org" class="tbtn on" aria-pressed="true" onclick="pick('org')">For teams</button>
+<button type="button" id="btn-ind" class="tbtn" aria-pressed="false" onclick="pick('ind')">For individuals</button>
 </div>
-<div id="panel-ind" style="display: contents;">
+<div id="panel-ind" style="display: contents;" hidden>
 
 <div id="individuals" style="width: 960px; display: flex; flex-direction: column; gap: 20px;">
 <div style="display: flex; flex-direction: column; gap: 8px; padding-bottom: 12px; border-bottom: 2px solid #14233B;">
@@ -424,7 +423,7 @@ img{max-width:100%}
 </div>
 
 </div>
-<div id="panel-org" style="display: contents;" hidden>
+<div id="panel-org" style="display: contents;">
 <div id="organisations" style="width: 960px; display: flex; flex-direction: column; gap: 20px;">
 <div style="display: flex; flex-direction: column; gap: 8px; padding-bottom: 12px; border-bottom: 2px solid #14233B;">
 <h2 style="margin: 0; font-size: 46px;">For companies and their marketing teams</h2>
