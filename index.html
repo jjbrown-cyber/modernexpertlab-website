@@ -297,7 +297,7 @@ img{max-width:100%}
 <style id="hero-h1-css">
 .hero-h1 .h1-big{display:block;font-size:118px;letter-spacing:0.005em;line-height:1}
 .hero-h1 .h1-small{display:block;font-size:46px;letter-spacing:0.01em;line-height:1.15;margin-top:10px}
-@media (max-width:1000px){.hero-h1{font-size:inherit!important}.hero-h1 .h1-big{font-size:13.6vw!important}.hero-h1 .h1-small{font-size:4.9vw!important;margin-top:6px}}
+@media (max-width:1000px){.hero-h1{font-size:inherit!important;-webkit-text-size-adjust:100%;text-size-adjust:100%}.hero-h1 .h1-big,.hero-h1 .h1-small{white-space:nowrap}.hero-h1 .h1-big{font-size:min(calc((100vw - 72px) / 6.3),96px)!important;line-height:1.05}.hero-h1 .h1-small{font-size:min(calc((100vw - 72px) / 16),38px)!important;margin-top:8px}}
 </style>
 </head>
 <body>
