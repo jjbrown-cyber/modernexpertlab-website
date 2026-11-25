@@ -401,7 +401,7 @@ img{max-width:100%}
 <a href="https://calendly.com/justyna-modernexpertlab/the-modern-expert-core" target="_blank" rel="noopener" style="align-self: flex-start; margin-top: 8px; padding: 16px 30px; border-radius: 999px; background: #14233B; color: #F3EDE2; font-size: 20px; font-weight: 600; text-decoration: none;">Book now</a>
 </article>
 
-<article style="background: #FFFDF8; border: 1px solid #DCD2C2; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 14px;">
+<article id="sprint" style="background: #FFFDF8; border: 1px solid #DCD2C2; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 14px;">
 <div class="card-head" style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px;">
 <div class="card-title"><h3 style="margin: 0; font-size: 32px;">The 30-Day Modern Expert Sprint</h3><div style="font-size: 19px; margin-top: 6px; color: #5A6573;">Four weekly 1:1 coaching sessions</div></div>
 <div class="card-price" style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px; white-space: nowrap;"><div style="font-size: 25px; font-weight: 700;"><span style="font-size: 0.75em; font-weight: 500; color: #8A6A2E; text-decoration: line-through; margin-right: 10px;">£699</span>£499</div><div style="font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: #8A6A2E;">Intro offer until 30 Nov 2026</div></div>
@@ -594,6 +594,7 @@ function pick(v){var ind=v==='ind';
 document.getElementById('panel-ind').hidden=!ind;document.getElementById('panel-org').hidden=ind;
 var bi=document.getElementById('btn-ind'),bo=document.getElementById('btn-org');
 bi.classList.toggle('on',ind);bo.classList.toggle('on',!ind);bi.setAttribute('aria-pressed',ind);bo.setAttribute('aria-pressed',!ind);}
+(function(){function go(){var h=location.hash.slice(1);if(!h)return;var el=document.getElementById(h);var p=document.getElementById('panel-ind');if(el&&p&&p.contains(el)){pick('ind');setTimeout(function(){el.scrollIntoView();},0);}}go();window.addEventListener('hashchange',go);})();
 
 
 (function(){var f=document.getElementById('enquiry');if(!f)return;var e=f.querySelector('input[name=email]');var free=/@(gmail|googlemail|hotmail|outlook|live|yahoo|ymail|icloud|me|aol|proton|protonmail|gmx|mail)\./i;
